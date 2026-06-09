@@ -54,6 +54,8 @@ Connect one URL to any MCP-compatible AI. From that moment your AI can:
 - **Invoke any AI model** — route to Claude, GPT-4o, Gemini, or any other model, with a cost ceiling enforced before the call runs
 - **Store credentials once** — save a GitHub token or database URL to the vault, and every relevant tool reads it automatically
 - **Run tasks in parallel** — up to 8 concurrent execution threads for workflows that need speed
+- **Snapshot any web page** — capture a full-page screenshot of any URL and get back a link that opens it, to show a result or confirm a page rendered correctly
+- **Take files in and hand them back** — receive a file from someone through an upload link, work on it, and return a finished file as a clean branded download, with the file never passing through the chat
 
 None of this is described. None of this is suggested. It is executed, confirmed, and returned.
 
@@ -128,6 +130,10 @@ One prompt. Your AI queries the database, finds the anomaly, writes the GitHub i
 
 Your AI calls each model, compares outputs, calculates cost per call, and reports back. UniversalBench enforces your spending ceiling before each call goes out.
 
+### Your AI hands you finished files, and shows you results
+
+Drop a messy spreadsheet into a link your AI gives you. It cleans it in the sandbox and hands back a polished file you can download. Ask it to check a page you just shipped, and it captures a full snapshot and returns a link that opens it. The files never pass through the chat, so there is no size limit and nothing to copy and paste.
+
 ---
 
 ## Three safety guarantees built in
@@ -145,7 +151,7 @@ Every outbound HTTP request is checked against a blocklist before it leaves. Pri
 
 ---
 
-## All 24 tools
+## Everything your AI can do
 
 | Tool | What your AI can do |
 |---|---|
@@ -164,6 +170,12 @@ Every outbound HTTP request is checked against a blocklist before it leaves. Pri
 | `safe_deploy` | Push, run smoke test, auto-rollback on failure. |
 | `file_read` | Read a file from the session sandbox. |
 | `file_write` | Write a file to the session sandbox. |
+| `screenshot_verify` | Capture a full-page snapshot of any web page and get back a link that opens it. |
+| `preview` | Show a web page your AI built live in the browser via a shareable link. |
+| `file_upload_link` | Get a link someone can drop a file into, then poll until it arrives. |
+| `file_fetch` | Load an uploaded file into the sandbox to edit, convert, or analyse. |
+| `save_output` | Turn a file your AI built into a shareable link. |
+| `file_deliver` | Deliver a finished file back as a clean branded download, with the right type and name. |
 | `db_select` | Structured query with filters and ordering. |
 | `db_query` | Raw SQL. |
 | `db_search` | Keyword search across columns. |
@@ -172,6 +184,7 @@ Every outbound HTTP request is checked against a blocklist before it leaves. Pri
 | `secrets_vault` | Store credentials encrypted. Reserved names like `GITHUB_TOKEN` auto-inject into matching tools. |
 | `validate_file` | Check Python source for syntax and safety issues before running. |
 | `code_diff` | Compare two code versions and flag regressions. |
+| `account_status` | Check your wallet balance, free calls left, and which add-on capabilities are on. Free to call. |
 | `task` | Label a call for tracking. No behaviour impact. |
 
 ---
