@@ -46,16 +46,16 @@ UniversalBench gives your AI a cloud computer it can use as a tool.
 
 Connect one URL to any MCP-compatible AI. From that moment your AI can:
 
-- **Run the code it writes** — execute Python and bash in an isolated sandbox, see real output, fix errors, iterate
-- **Push to GitHub** — read repos, commit files, validate code before it lands, roll back automatically if a smoke test fails
-- **Deploy and verify** — push a change, hit a health check, confirm the new version is serving, roll back if not
-- **Query your databases** — structured queries, raw SQL, keyword search, inserts, upserts — against any database you connect
-- **Call any API** — HTTP requests to any public endpoint with network safety built in
-- **Invoke any AI model** — route to Claude, GPT-4o, Gemini, or any other model, with a cost ceiling enforced before the call runs
-- **Store credentials once** — save a GitHub token or database URL to the vault, and every relevant tool reads it automatically
-- **Run tasks in parallel** — up to 8 concurrent execution threads for workflows that need speed
-- **Snapshot any web page** — capture a full-page screenshot of any URL and get back a link that opens it, to show a result or confirm a page rendered correctly
-- **Take files in and hand them back** — receive a file from someone through an upload link, work on it, and return a finished file as a clean branded download, with the file never passing through the chat
+- **Run the code it writes**, execute Python and bash in an isolated sandbox, see real output, fix errors, iterate
+- **Push to GitHub**, read repos, commit files, validate code before it lands, roll back automatically if a smoke test fails
+- **Deploy and verify**, push a change, hit a health check, confirm the new version is serving, roll back if not
+- **Query your databases**, structured queries, raw SQL, keyword search, inserts, upserts, against any database you connect
+- **Call any API**, HTTP requests to any public endpoint with network safety built in
+- **Invoke any AI model**, route to Claude, GPT-4o, Gemini, or any other model, with a cost ceiling enforced before the call runs
+- **Store credentials once**, save a GitHub token or database URL to the vault, and every relevant tool reads it automatically
+- **Run tasks in parallel**, up to 8 concurrent execution threads for workflows that need speed
+- **Snapshot any web page**, capture a full-page screenshot of any URL and get back a link that opens it, to show a result or confirm a page rendered correctly
+- **Take files in and hand them back**, receive a file from someone through an upload link, work on it, and return a finished file as a clean branded download, with the file never passing through the chat
 
 None of this is described. None of this is suggested. It is executed, confirmed, and returned.
 
@@ -151,54 +151,30 @@ Every outbound HTTP request is checked against a blocklist before it leaves. Pri
 
 ---
 
-## Everything your AI can do
+## What your AI can do
 
-| Tool | What your AI can do |
-|---|---|
-| `code` | Write and run Python. State and files persist within a session. |
-| `bash` | Run shell commands. Install tools, process files, run scripts. |
-| `install_packages` | Install any Python package before a call. Cached for the session. |
-| `parallel_blocks` | Run up to 8 tasks simultaneously. |
-| `session_id` | Persist state across calls. Variables, files, and packages survive. |
-| `clear_session` | Wipe session state and start fresh. |
-| `web_search` | Search the live web and return results with sources. |
-| `proxy_http` | Call any public API. Internal network access is blocked. |
-| `invoke_llm` | Call any major AI model. Cost ceiling enforced before the call runs. |
-| `git_read` | Read any file from a GitHub repository. |
-| `git_push` | Commit a file with automatic validation. Previous version saved for rollback. |
-| `code_edit` | Edit a file by finding and replacing an exact string. Safer than full rewrites. |
-| `safe_deploy` | Push, run smoke test, auto-rollback on failure. |
-| `file_read` | Read a file from the session sandbox. |
-| `file_write` | Write a file to the session sandbox. |
-| `screenshot_verify` | Capture a full-page snapshot of any web page and get back a link that opens it. |
-| `preview` | Show a web page your AI built live in the browser via a shareable link. |
-| `file_upload_link` | Get a link someone can drop a file into, then poll until it arrives. |
-| `file_fetch` | Load an uploaded file into the sandbox to edit, convert, or analyse. |
-| `save_output` | Turn a file your AI built into a shareable link. |
-| `file_deliver` | Deliver a finished file back as a clean branded download, with the right type and name. |
-| `db_select` | Structured query with filters and ordering. |
-| `db_query` | Raw SQL. |
-| `db_search` | Keyword search across columns. |
-| `db_write` | Insert or update rows. |
-| `db_upsert` | Insert or update by a conflict key. |
-| `secrets_vault` | Store credentials encrypted. Reserved names like `GITHUB_TOKEN` auto-inject into matching tools. |
-| `validate_file` | Check Python source for syntax and safety issues before running. |
-| `code_diff` | Compare two code versions and flag regressions. |
-| `account_status` | Check your wallet balance, free calls left, and which add-on capabilities are on. Free to call. |
-| `task` | Label a call for tracking. No behaviour impact. |
+One connection. Three tools (`ub_read`, `ub_write`, `ub_ai`). Underneath them, your AI can:
+
+- **Run code and shell**, execute Python and shell commands in an isolated sandbox, with state and files that persist across a session
+- **Install what it needs**, pull in any package before running
+- **Work in parallel**, run multiple tasks at once for speed
+- **Search the live web**, real results with sources
+- **Call any public API**, with internal-network access blocked by default
+- **Invoke any AI model**, Claude, GPT, Gemini, and more, with a cost ceiling enforced before each call
+- **Read and ship code on GitHub**, read repos, commit with validation, and roll back automatically if a deploy check fails
+- **Query your databases**, structured queries, raw SQL, search, inserts and updates, against any database you connect, using your own credentials
+- **Capture and preview pages**, take a full-page snapshot of any URL, or show a page your AI built, as a shareable link
+- **Take files in and hand them back**, receive a file through an upload link, work on it, and return a finished, correctly-typed download, with files never passing through the chat
+- **Persist memory and state**, keep context across sessions
+- **Store credentials safely**, save a credential once in an encrypted vault and the right tools use it automatically, your AI never sees the value
+
+Every capability runs behind the same safety checks: validated before code lands, cost-estimated before a model runs, and network-checked before a request leaves.
 
 ---
 
-## Credentials: save once, works everywhere
+## Credentials, saved once
 
-Store a credential once and every relevant tool reads it automatically on every future call.
-
-```
-GITHUB_TOKEN  →  git_read, git_push, code_edit, safe_deploy unlock automatically
-DATABASE_URL  →  db_select, db_query, db_search, db_write, db_upsert unlock automatically
-```
-
-Your AI never sees credential values. Encrypted at rest. You save once, it handles the rest.
+Store a credential once and your AI uses it on every future call, without ever seeing the value. Encrypted at rest. Save once, and the relevant tools start working automatically.
 
 ---
 
@@ -221,5 +197,5 @@ Full capability reference, quickstart guides, and agent-ready prompts at [docs.u
 ---
 
 <p align="center">
-  <a href="https://universalbench.dev/#signup"><strong>Sign up free — no credit card →</strong></a>
+  <a href="https://universalbench.dev/#signup"><strong>Sign up free, no credit card →</strong></a>
 </p>
