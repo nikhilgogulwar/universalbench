@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "universalbench": {
+      "url": "https://universalbench-mcp.penantiaglobal.workers.dev/u/YOUR_API_KEY"
+    }
+  }
+}
