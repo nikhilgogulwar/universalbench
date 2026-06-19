@@ -1,0 +1,17 @@
+{
+  "name": "universalbench",
+  "owner": {
+    "name": "UniversalBench",
+    "email": "support@universalbench.dev"
+  },
+  "metadata": {
+    "description": "UniversalBench: give your AI a cloud computer behind one URL. Run code, query databases, commit to GitHub, search the web, and call any LLM."
+  },
+  "plugins": [
+    {
+      "name": "universalbench",
+      "source": "plugins/universalbench",
+      "description": "Connect your AI to UniversalBench: one MCP that runs code, reads and writes databases, commits to GitHub, searches the web, and calls any LLM."
+    }
+  ]
+}
