@@ -1,0 +1,25 @@
+{
+  "name": "universalbench",
+  "displayName": "UniversalBench",
+  "description": "Give your AI a cloud computer behind one URL: run code, query databases, commit to GitHub, search the web, and call any LLM. Up to 96.5 percent fewer tokens on data-heavy tasks.",
+  "version": "1.0.0",
+  "author": {
+    "name": "UniversalBench",
+    "email": "support@universalbench.dev"
+  },
+  "publisher": "UniversalBench",
+  "homepage": "https://universalbench.dev",
+  "repository": "https://github.com/nikhilgogulwar/universalbench",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "mcp",
+    "code-execution",
+    "database",
+    "github",
+    "web-search",
+    "llm",
+    "agent",
+    "ai-infrastructure"
+  ],
+  "category": "Development tools"
+}
