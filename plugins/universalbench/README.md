@@ -14,9 +14,7 @@ Three guarantees are enforced in code: your AI never ships code that fails to lo
 
 1. Create a free account at https://universalbench.dev (1000 free calls per month, no card)
 2. Copy your API key from the dashboard
-3. Open `mcp.json` and replace `YOUR_API_KEY` in the server URL with your key:
-
-   `https://universalbench-mcp.penantiaglobal.workers.dev/u/YOUR_API_KEY`
+3. Open `mcp.json` and replace `YOUR_API_KEY` in the `Authorization` header with your key. The server address is `https://mcp.universalbench.dev`; never put your key in the address. If your client supports sign-in (OAuth), you can remove the `headers` line and sign in instead.
 
 Your agent can then use `ub_read`, `ub_write`, and `ub_ai`.
 

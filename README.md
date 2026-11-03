@@ -67,37 +67,32 @@ None of this is described. None of this is suggested. It is executed, confirmed,
 
 **2.** Copy your API key from the dashboard.
 
-**3.** Paste this URL into any AI client:
+**3.** Connect your AI client to this address and sign in when asked, or send your key in the `Authorization: Bearer YOUR_API_KEY` header:
 
 ```
-https://universalbench-mcp.penantiaglobal.workers.dev/u/YOUR_API_KEY
+https://mcp.universalbench.dev
 ```
 
-### Claude.ai
-Settings → Integrations → Add custom integration → paste the URL.
+Never put your key in a URL.
+
+### Claude.ai and Claude Desktop
+Settings → Connectors → Add custom connector → paste `https://mcp.universalbench.dev` → sign in.
 
 ### Cursor / Windsurf / VS Code Copilot
 ```json
 {
   "mcpServers": {
     "universalbench": {
-      "url": "https://universalbench-mcp.penantiaglobal.workers.dev/u/YOUR_API_KEY"
+      "url": "https://mcp.universalbench.dev",
+      "headers": { "Authorization": "Bearer YOUR_API_KEY" }
     }
   }
 }
 ```
 
-### Claude Desktop
-```json
-{
-  "mcpServers": {
-    "universalbench": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/client-sse",
-               "https://universalbench-mcp.penantiaglobal.workers.dev/u/YOUR_API_KEY"]
-    }
-  }
-}
+### Claude Code
+```bash
+claude mcp add --transport http universalbench https://mcp.universalbench.dev --header "Authorization: Bearer YOUR_API_KEY"
 ```
 
 Works with any MCP-compatible client: Claude, ChatGPT, Gemini, GitHub Copilot, Cursor, Windsurf, and more.

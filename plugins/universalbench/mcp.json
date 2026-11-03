@@ -1,7 +1,10 @@
 {
   "mcpServers": {
     "universalbench": {
-      "url": "https://universalbench-mcp.penantiaglobal.workers.dev/u/YOUR_API_KEY"
+      "url": "https://mcp.universalbench.dev",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
     }
   }
 }
